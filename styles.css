@@ -2,24 +2,25 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #0D1117;
+  background: transparent; /* se adapta al fondo del host (Notion) */
   color: #E6EDF3;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto; /* permitir que Notion ajuste la altura */
 }
 
 .container {
-  background: #161B22;
-  border-radius: 18px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.5);
-  padding: 28px;
-  width: 90%;
-  max-width: 450px;
+  background: rgba(22,27,34,0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
   text-align: center;
-  margin: 60px auto;
+  margin: 12px auto;
   position: relative;
-  z-index: 10;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -120,16 +121,18 @@ button#btnGenerate:hover {
 
 /* --- OUTPUT --- */
 #output {
-  background: #0D1117;
-  border-radius: 12px;
-  padding: 16px;
-  margin-top: 20px;
-  border: 1px solid #30363D;
+  background: transparent;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 14px;
+  border: 1px solid rgba(48,54,61,0.6);
   text-align: left;
-  line-height: 1.5;
+  line-height: 1.4;
+  max-height: 160px;
+  overflow: auto;
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.5s ease;
+  transform: translateY(8px);
+  transition: all 0.35s ease;
 }
 
 #output.visible {
@@ -139,12 +142,33 @@ button#btnGenerate:hover {
 
 /* --- PARTICLES CANVAS --- */
 #particles {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 1;
-  background: transparent;
+  border-radius: 12px;
+  opacity: 0.55;
+}
+
+/* pantalla pequeña */
+@media (max-width: 360px) {
+  .container { padding: 14px; max-width: 320px; }
+  h1 { font-size: 1.2rem; }
+  button#btnGenerate { font-size: 14px; padding: 8px; }
+}
+
+/* clase útil para ocultar label visualmente pero accesible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

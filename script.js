@@ -1,13 +1,30 @@
 let dictionary = {};
 const output = document.getElementById("output");
+const container = document.getElementById("widgetContainer");
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 
-// --- Cargar el diccionario ---
+// --- Configuración de partículas ---
+let particles = [];
+const MAX_PARTICLES = 80;
+let animationActive = true;
+resizeCanvas();
+
+// --- Cargar el diccionario (fallback si falla fetch) ---
 fetch("dictionary.json")
   .then(res => res.json())
   .then(data => {
     dictionary = data;
     showDailyWord();
-    lucide.createIcons(); // activar iconos
+    lucide.createIcons();
+    postHeight(); // avisar al padre
+  })
+  .catch(() => {
+    // fallback mínimo si ocurre un error (evita romper la UI)
+    dictionary = { "hola": { "synonyms": ["saludo"], "rhymes": ["ola"] } };
+    showDailyWord();
+    lucide.createIcons();
+    postHeight();
   });
 
 // --- EVENTOS ---
@@ -16,8 +33,31 @@ document.getElementById("wordInput").addEventListener("input", spawnParticles);
 document.getElementById("btnNew").addEventListener("click", newWord);
 document.getElementById("btnIdea").addEventListener("click", inspiration);
 document.getElementById("btnReset").addEventListener("click", resetWord);
+window.addEventListener("resize", () => { resizeCanvas(); postHeight(); });
 
-// --- Palabra del día ---
+// Pausar animación cuando no está visible (optimización en iframe)
+document.addEventListener("visibilitychange", () => {
+  animationActive = !document.hidden;
+  if (animationActive) animateParticles();
+});
+
+// Intersección para pausar si iframe no visible en la página
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { animationActive = e.isIntersecting; if (animationActive) animateParticles(); });
+  }, { threshold: 0.1 });
+  obs.observe(container);
+}
+
+// --- Ajuste de altura para el host (Notion) ---
+function postHeight() {
+  try {
+    const h = container.offsetHeight + 8;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  } catch (e) { /* silencioso */ }
+}
+
+// --- Palabra del día, generadores, etc (sin cambios importantes) ---
 function showDailyWord() {
   const today = new Date().toISOString().slice(0, 10);
   const saved = JSON.parse(localStorage.getItem("dailyWord"));
@@ -45,14 +85,16 @@ function inspiration() {
   const idea = ideas[Math.floor(Math.random() * ideas.length)];
   output.innerHTML = `<p><strong>Inspiración:</strong> ${idea}</p>`;
   output.classList.add("visible");
+  postHeight();
 }
 
 function resetWord() {
   output.innerHTML = "";
   document.getElementById("wordInput").value = "";
+  output.classList.remove("visible");
+  postHeight();
 }
 
-// --- Mostrar palabra ---
 function generate() {
   const word = document.getElementById("wordInput").value.trim().toLowerCase();
   displayWord(word);
@@ -62,60 +104,59 @@ function displayWord(word) {
   if (!word) return;
   const data = dictionary[word];
   output.classList.remove("visible");
-  void output.offsetWidth; // forzar reflow
-
+  void output.offsetWidth;
   if (data) {
+    const syn = (data.synonyms || []).join(", ") || "—";
+    const rh = (data.rhymes || []).join(", ") || "—";
+    const r0 = (data.rhymes && data.rhymes[0]) || "";
+    const r1 = (data.rhymes && data.rhymes[1]) || "";
     output.innerHTML = `
       <h2>${word}</h2>
-      <p><strong>Sinónimos:</strong> ${data.synonyms.join(", ")}</p>
-      <p><strong>Rimas:</strong> ${data.rhymes.join(", ")}</p>
-      <p><strong>Ejercicio:</strong> Usa "<em>${word}</em>" junto con "<em>${data.rhymes[0]}</em>" y "<em>${data.rhymes[1]}</em>".</p>
+      <p><strong>Sinónimos:</strong> ${syn}</p>
+      <p><strong>Rimas:</strong> ${rh}</p>
+      <p><strong>Ejercicio:</strong> Usa "<em>${word}</em>" junto con "<em>${r0}</em>" y "<em>${r1}</em>".</p>
     `;
   } else {
     output.innerHTML = `<p>No se encontró <strong>${word}</strong> en el diccionario.</p>`;
   }
-
-  setTimeout(() => output.classList.add("visible"), 50);
+  setTimeout(() => { output.classList.add("visible"); postHeight(); }, 60);
 }
 
-// --- Partículas visuales ---
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let particles = [];
-resizeCanvas();
-
-window.addEventListener("resize", resizeCanvas);
-
+// --- Partículas --- 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = container.clientWidth;
+  canvas.height = container.clientHeight;
 }
 
 function spawnParticles() {
-  for (let i = 0; i < 5; i++) {
+  if (particles.length > MAX_PARTICLES) return;
+  for (let i = 0; i < 4; i++) {
+    if (particles.length >= MAX_PARTICLES) break;
     particles.push({
-      x: window.innerWidth / 2 + (Math.random() - 0.5) * 100,
-      y: window.innerHeight / 2 - 100 + Math.random() * 50,
-      size: Math.random() * 2 + 1,
-      speedY: Math.random() * -1 - 0.5,
-      speedX: (Math.random() - 0.5) * 1,
+      x: canvas.width / 2 + (Math.random() - 0.5) * 80,
+      y: canvas.height / 2 - 40 + Math.random() * 30,
+      size: Math.random() * 2 + 0.8,
+      speedY: Math.random() * -0.8 - 0.2,
+      speedX: (Math.random() - 0.5) * 0.6,
       opacity: 1
     });
   }
 }
 
 function animateParticles() {
+  if (!animationActive) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p, i) => {
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
     p.x += p.speedX;
     p.y += p.speedY;
-    p.opacity -= 0.015;
-    ctx.fillStyle = `rgba(88,166,255,${p.opacity})`;
+    p.opacity -= 0.02;
+    ctx.fillStyle = `rgba(88,166,255,${Math.max(p.opacity,0)})`;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
     ctx.fill();
-    if (p.opacity <= 0) particles.splice(i, 1);
-  });
+    if (p.opacity <= 0 || p.y < -10 || p.x < -10 || p.x > canvas.width + 10) particles.splice(i, 1);
+  }
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
