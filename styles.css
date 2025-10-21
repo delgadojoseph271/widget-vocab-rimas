@@ -42,6 +42,7 @@ h1 {
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 .controls button {
@@ -53,6 +54,8 @@ h1 {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  flex: 0 0 auto;
+  min-width: 44px;
 }
 
 .controls button:hover {
@@ -135,6 +138,36 @@ button#btnGenerate:hover {
   transition: all 0.35s ease;
 }
 
+/* Scroll minimalista para #output (color del título: #58A6FF) */
+#output {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(88,166,255,0.95) rgba(48,54,61,0.08);
+}
+
+/* WebKit / Chromium */
+#output::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#output::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 6px 0; /* da separación en el track */
+  border-radius: 999px;
+}
+#output::-webkit-scrollbar-thumb {
+  background: rgba(88,166,255,0.95);
+  border-radius: 999px;
+  min-height: 24px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+  transition: background 120ms ease, transform 120ms ease;
+}
+#output::-webkit-scrollbar-thumb:hover {
+  background: rgba(120,190,255,1);
+  transform: translateZ(0);
+}
+#output::-webkit-scrollbar-corner { background: transparent; }
+
 #output.visible {
   opacity: 1;
   transform: translateY(0);
@@ -152,6 +185,95 @@ button#btnGenerate:hover {
   border-radius: 12px;
   opacity: 0.55;
 }
+
+/* Minimal slider (color del título: #58A6FF) */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  margin-top: 10px;
+}
+
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: rgba(88,166,255,0.12);
+  border-radius: 999px;
+}
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: rgba(88,166,255,0.12);
+  border-radius: 999px;
+}
+
+/* Filled part (WebKit) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -4px; /* centra el thumb respecto al track */
+  background: #58A6FF;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(88,166,255,0.10);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 10px rgba(88,166,255,0.12);
+}
+
+/* Firefox thumb */
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #58A6FF;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(88,166,255,0.10);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+}
+
+/* Remove focus outline but keep visible focus ring */
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-moz-range-track {
+  box-shadow: 0 0 0 6px rgba(88,166,255,0.06);
+}
+/* small disabled state */
+input[type="range"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* prevenir overflow de inputs/botones dentro del contenedor */
+input,
+button,
+textarea,
+select {
+  box-sizing: border-box;
+  max-width: 100%;
+  display: block;
+}
+
+/* permitir que los controles se ajusten en pantallas estrechas */
+.controls {
+  flex-wrap: wrap;
+}
+
+/* mantener botones en línea pero con tamaño contenido */
+.controls button {
+  flex: 0 0 auto;
+  min-width: 44px;
+}
+
+/* asegurar que el canvas no empuje el contenido */
+.container { position: relative; }
 
 /* pantalla pequeña */
 @media (max-width: 360px) {
