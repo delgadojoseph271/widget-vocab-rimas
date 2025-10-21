@@ -1,0 +1,157 @@
+{
+  "hablar": { 
+    "synonyms": ["comunicar", "expresar", "manifestar"], 
+    "rhymes": ["bailar", "marchar", "soñar"] 
+  },
+  "amar": { 
+    "synonyms": ["adorar", "querer", "valorar"], 
+    "rhymes": ["crear", "luchar", "volar"] 
+  },
+  "vivir": { 
+    "synonyms": ["existir", "experimentar", "respirar"], 
+    "rhymes": ["sentir", "compartir", "latir"] 
+  },
+  "soñar": { 
+    "synonyms": ["imaginar", "anhelar", "visualizar"], 
+    "rhymes": ["volar", "amar", "luchar"] 
+  },
+  "crear": { 
+    "synonyms": ["inventar", "producir", "construir"], 
+    "rhymes": ["amar", "soñar", "brillar"] 
+  },
+
+  "comer": { "synonyms": ["alimentarse", "devorar", "ingerir"], "rhymes": ["beber", "volver", "correr"] },
+  "beber": { "synonyms": ["tomar", "hidratarse", "sorber"], "rhymes": ["correr", "leer", "temer"] },
+  "dormir": { "synonyms": ["reposar", "descansar", "adormecerse"], "rhymes": ["sentir", "venir", "partir"] },
+  "leer": { "synonyms": ["ojear", "repasar", "estudiar"], "rhymes": ["creer", "volver", "beber"] },
+  "escribir": { "synonyms": ["redactar", "anotar", "componer"], "rhymes": ["vivir", "subir", "decidir"] },
+  "mirar": { "synonyms": ["observar", "ver", "contemplar"], "rhymes": ["jugar", "amar", "sonar"] },
+  "escuchar": { "synonyms": ["oír", "atender", "prestar atención"], "rhymes": ["guardar", "amar", "mirar"] },
+  "correr": { "synonyms": ["trotar", "apresurarse", "galopar"], "rhymes": ["morder", "volver", "saber"] },
+  "caminar": { "synonyms": ["andar", "pasear", "desplazarse"], "rhymes": ["amar", "pasar", "llegar"] },
+  "bailar": { "synonyms": ["danza", "moverse", "girar"], "rhymes": ["hablar", "amar", "soñar"] },
+  "reír": { "synonyms": ["sonreír", "carcajear", "divertirse"], "rhymes": ["vivir", "decir", "repetir"] },
+  "llorar": { "synonyms": ["sollozar", "lamentar", "gemir"], "rhymes": ["amar", "mirar", "vagar"] },
+  "jugar": { "synonyms": ["divertirse", "entretenerse", "competir"], "rhymes": ["nadar", "soñar", "amar"] },
+  "cocinar": { "synonyms": ["guisar", "preparar", "hornear"], "rhymes": ["marinar", "calar", "amar"] },
+  "aprender": { "synonyms": ["estudiar", "asimilar", "entender"], "rhymes": ["comprender", "crecer", "saber"] },
+  "enseñar": { "synonyms": ["instruir", "mostrar", "guiar"], "rhymes": ["llevar", "amar", "soñar"] },
+  "pensar": { "synonyms": ["meditar", "reflexionar", "considerar"], "rhymes": ["lanzar", "soñar", "amar"] },
+  "saber": { "synonyms": ["conocer", "entender", "dominar"], "rhymes": ["haber", "caber", "leer"] },
+  "conocer": { "synonyms": ["identificar", "reconocer", "saber"], "rhymes": ["aparecer", "crecer", "parecer"] },
+  "buscar": { "synonyms": ["procurar", "explorar", "indagar"], "rhymes": ["encontrar", "amar", "luchar"] },
+  "encontrar": { "synonyms": ["hallar", "descubrir", "localizar"], "rhymes": ["buscar", "amar", "nadar"] },
+
+  "abrir": { "synonyms": ["desbloquear", "destapar", "inaugurar"], "rhymes": ["cubrir", "vivir", "subir"] },
+  "cerrar": { "synonyms": ["clausurar", "cerrar", "precintar"], "rhymes": ["besar", "guardar", "cantar"] },
+  "sentir": { "synonyms": ["percibir", "experimentar", "notar"], "rhymes": ["vivir", "latir", "compartir"] },
+  "gustar": { "synonyms": ["agradar", "placer", "satisfacer"], "rhymes": ["amar", "mirar", "nadar"] },
+  "odiar": { "synonyms": ["detestar", "aborrecer", "rechazar"], "rhymes": ["amar", "llamar", "temblar"] },
+  "trabajar": { "synonyms": ["laborar", "operar", "emplearse"], "rhymes": ["cantar", "andar", "amar"] },
+  "descansar": { "synonyms": ["reposar", "relajarse", "reponerse"], "rhymes": ["soñar", "amar", "nadar"] },
+  "viajar": { "synonyms": ["desplazarse", "peregrinar", "recorrer"], "rhymes": ["navegar", "amar", "llegar"] },
+  "llegar": { "synonyms": ["arribar", "alcanzar", "presentarse"], "rhymes": ["amar", "pasar", "entrar"] },
+  "salir": { "synonyms": ["partir", "irse", "egresar"], "rhymes": ["venir", "dormir", "vivir"] },
+  "entrar": { "synonyms": ["acceder", "ingresar", "penetrar"], "rhymes": ["sonar", "amar", "llegar"] },
+
+  "comprar": { "synonyms": ["adquirir", "obtener", "mercar"], "rhymes": ["vender", "amar", "andar"] },
+  "vender": { "synonyms": ["comercializar", "ofrecer", "traficar"], "rhymes": ["comprar", "amar", "volver"] },
+  "pagar": { "synonyms": ["abonar", "saldar", "remunerar"], "rhymes": ["jugar", "amar", "llegar"] },
+
+  "cantar": { "synonyms": ["entonar", "vocalizar", "tararear"], "rhymes": ["amar", "bailar", "soñar"] },
+  "gritar": { "synonyms": ["vociferar", "chillar", "exclamar"], "rhymes": ["llorar", "amar", "mirar"] },
+  "susurrar": { "synonyms": ["murmurar", "susurrar", "susurrar"], "rhymes": ["amar", "mirar", "nadar"] },
+
+  "llevar": { "synonyms": ["transportar", "portar", "cargar"], "rhymes": ["traer", "amar", "nadar"] },
+  "traer": { "synonyms": ["transportar", "acercar", "conducir"], "rhymes": ["llevar", "amar", "soñar"] },
+  "quedar": { "synonyms": ["permanecer", "reposar", "mantenerse"], "rhymes": ["esperar", "amar", "soñar"] },
+  "esperar": { "synonyms": ["aguardar", "anhelar", "confiar"], "rhymes": ["amar", "soñar", "llegar"] },
+  "olvidar": { "synonyms": ["desatender", "ignorar", "perder memoria"], "rhymes": ["recordar", "amar", "errar"] },
+  "recordar": { "synonyms": ["rememorar", "evocar", "rememorar"], "rhymes": ["olvidar", "amar", "soñar"] },
+
+  "besar": { "synonyms": ["besar", "besar", "dar un beso"], "rhymes": ["amar", "besar", "soñar"] },
+  "abrazar": { "synonyms": ["estrechar", "asirse", "envolver"], "rhymes": ["besar", "amar", "soñar"] },
+  "ayudar": { "synonyms": ["auxiliar", "socorrer", "asistir"], "rhymes": ["curar", "amar", "soñar"] },
+  "curar": { "synonyms": ["sanar", "recuperar", "restaurar"], "rhymes": ["ayudar", "amar", "soñar"] },
+
+  "romper": { "synonyms": ["quebrar", "fragmentar", "dañar"], "rhymes": ["comer", "correr", "volver"] },
+  "arreglar": { "synonyms": ["reparar", "ajustar", "componer"], "rhymes": ["llegar", "amar", "soñar"] },
+  "construir": { "synonyms": ["edificar", "levantar", "fabricar"], "rhymes": ["destruir", "amar", "soñar"] },
+  "destruir": { "synonyms": ["arrasar", "demoler", "anular"], "rhymes": ["construir", "amar", "soñar"] },
+
+  "mejorar": { "synonyms": ["optimizar", "perfeccionar", "progresar"], "rhymes": ["cantar", "amar", "soñar"] },
+  "pegar": { "synonyms": ["golpear", "adherir", "unir"], "rhymes": ["nadar", "amar", "soñar"] },
+  "tocar": { "synonyms": ["palpar", "rozar", "interpretar"], "rhymes": ["bocar", "amar", "soñar"] },
+
+  "oler": { "synonyms": ["oler", "olfatear", "perfundir"], "rhymes": ["oler", "amar", "soñar"] },
+  "probar": { "synonyms": ["intentar", "degustar", "verificar"], "rhymes": ["robar", "amar", "soñar"] },
+
+  "cortar": { "synonyms": ["seccionar", "rebanar", "recortar"], "rhymes": ["mortar", "amar", "soñar"] },
+  "peinar": { "synonyms": ["cepillar", "peinarse", "peinar"], "rhymes": ["amar", "soñar", "llegar"] },
+  "vestir": { "synonyms": ["atar ropa", "ponerse", "adornar"], "rhymes": ["vivir", "decidir", "subir"] },
+
+  "nadar": { "synonyms": ["bañarse", "flotar", "navegar"], "rhymes": ["jugar", "amar", "soñar"] },
+  "flotar": { "synonyms": ["levitar", "suspender", "navegar"], "rhymes": ["nadar", "amar", "soñar"] },
+
+  "caer": { "synonyms": ["desplomarse", "precipitarse", "bajar"], "rhymes": ["morder", "amar", "soñar"] },
+  "subir": { "synonyms": ["ascender", "elevar", "aumentar"], "rhymes": ["vivir", "decidir", "subir"] },
+  "bajar": { "synonyms": ["descender", "reducir", "disminuir"], "rhymes": ["llegar", "amar", "soñar"] },
+
+  "cambiar": { "synonyms": ["modificar", "transformar", "sustituir"], "rhymes": ["amar", "llegar", "soñar"] },
+  "mantener": { "synonyms": ["conservar", "sostener", "preservar"], "rhymes": ["tener", "amar", "soñar"] },
+
+  "saltar": { "synonyms": ["brincar", "elevarse", "botar"], "rhymes": ["contar", "volar", "andar"] },
+  "apagar": { "synonyms": ["extinguir", "desconectar", "silenciar"], "rhymes": ["encender", "amar", "soñar"] },
+  "encender": { "synonyms": ["prender", "iluminar", "activar"], "rhymes": ["apagar", "amar", "soñar"] },
+
+  "pintar": { "synonyms": ["colorear", "repintar", "ilustrar"], "rhymes": ["cantar", "amar", "soñar"] },
+  "dibujar": { "synonyms": ["trazar", "esbozar", "ilustrar"], "rhymes": ["pintar", "amar", "soñar"] },
+
+  "medir": { "synonyms": ["calibrar", "evaluar", "dimensionar"], "rhymes": ["oír", "vivir", "decidir"] },
+  "pesar": { "synonyms": ["evaluar peso", "sopesar", "calcular"], "rhymes": ["besar", "amar", "soñar"] },
+
+  "jurar": { "synonyms": ["prometer", "asegurar", "vengar"], "rhymes": ["mentir", "amar", "soñar"] },
+  "mentir": { "synonyms": ["engañar", "fingir", "falsear"], "rhymes": ["jurar", "amar", "soñar"] },
+
+  "decir": { "synonyms": ["afirmar", "expresar", "mencionar"], "rhymes": ["repetir", "vivir", "sentir"] },
+  "contar": { "synonyms": ["relatar", "enumerar", "narrar"], "rhymes": ["saltar", "amar", "soñar"] },
+  "explicar": { "synonyms": ["aclarar", "detallar", "ilustrar"], "rhymes": ["brillar", "amar", "soñar"] },
+  "mostrar": { "synonyms": ["enseñar", "exhibir", "revelar"], "rhymes": ["contar", "amar", "soñar"] },
+
+  "envolver": { "synonyms": ["cubrir", "envolver", "encapsular"], "rhymes": ["resolver", "amar", "soñar"] },
+  "desenvolver": { "synonyms": ["desempaquetar", "abrir", "descubrir"], "rhymes": ["envolver", "amar", "soñar"] },
+
+  "guardar": { "synonyms": ["conservar", "archivar", "resguardar"], "rhymes": ["mirar", "amar", "soñar"] },
+  "romperse": { "synonyms": ["fracturarse", "quebrarse", "deshacer"], "rhymes": ["caerse", "amar", "soñar"] },
+
+  "sonar": { "synonyms": ["resonar", "retumbar", "emitir sonido"], "rhymes": ["amar", "mirar", "soñar"] },
+  "brillar": { "synonyms": ["resplandecer", "lucir", "relumbrar"], "rhymes": ["crear", "amar", "soñar"] },
+
+  "apoyar": { "synonyms": ["sostener", "respaldar", "ayudar"], "rhymes": ["soñar", "amar", "luchar"] },
+  "sostener": { "synonyms": ["mantener", "apoyar", "sujetar"], "rhymes": ["tener", "amar", "soñar"] },
+
+  "nacer": { "synonyms": ["surgir", "originarse", "aparecer"], "rhymes": ["crecer", "parecer", "volver"] },
+  "crecer": { "synonyms": ["aumentar", "desarrollarse", "expandirse"], "rhymes": ["nacer", "aparecer", "conocer"] },
+
+  "componer": { "synonyms": ["crear", "formar", "organizar"], "rhymes": ["responder", "amar", "soñar"] },
+  "describir": { "synonyms": ["detallar", "explicar", "caracterizar"], "rhymes": ["inscribir", "amar", "soñar"] },
+
+  "limpiar": { "synonyms": ["asear", "pulir", "sanear"], "rhymes": ["regar", "amar", "soñar"] },
+  "ensuciar": { "synonyms": ["manchar", "contaminar", "embarrar"], "rhymes": ["lavar", "amar", "soñar"] },
+
+  "florecer": { "synonyms": ["brotar", "manifestarse", "prosperar"], "rhymes": ["crecer", "nacer", "parecer"] },
+  "marchitar": { "synonyms": ["secar", "decaer", "desvanecer"], "rhymes": ["partir", "amar", "soñar"] },
+
+  "sonreír": { "synonyms": ["reír", "esbozar sonrisa", "alabar"], "rhymes": ["reír", "vivir", "decir"] },
+  "suspirar": { "synonyms": ["exhalar", "aspirar", "anhelar"], "rhymes": ["amar", "soñar", "llegar"] },
+
+  "filtrar": { "synonyms": ["colarlo", "depurar", "tamizar"], "rhymes": ["alterar", "amar", "soñar"] },
+  "fusionar": { "synonyms": ["unir", "combinar", "integrar"], "rhymes": ["razonar", "amar", "soñar"] },
+
+  "nutrir": { "synonyms": ["alimentar", "sustentar", "alimentarse"], "rhymes": ["construir", "vivir", "decidir"] },
+  "proteger": { "synonyms": ["resguardar", "defender", "cuidar"], "rhymes": ["llegar", "amar", "soñar"] },
+
+  "investigar": { "synonyms": ["indagar", "explorar", "analizar"], "rhymes": ["buscar", "amar", "soñar"] },
+  "analizar": { "synonyms": ["examinar", "estudiar", "descomponer"], "rhymes": ["finalizar", "amar", "soñar"] }
+
+}

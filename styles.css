@@ -1,21 +1,150 @@
+/* === DARK MODE ELEGANTE Y LIMPIO === */
+
 body {
-  font-family: sans-serif;
-  background: #f9f9f9;
-  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  background: #0D1117;
+  color: #E6EDF3;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
+
 .container {
-  max-width: 400px;
-  margin: 0 auto;
+  background: #161B22;
+  border-radius: 18px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+  padding: 28px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  margin: 60px auto;
+  position: relative;
+  z-index: 10;
 }
-input, button {
+
+h1 {
+  font-size: 1.8rem;
+  color: #58A6FF;
+  margin-bottom: 4px;
+}
+
+#dailyWordTitle {
+  color: #3FB950;
+  font-weight: 500;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* --- BOTONES SUPERIORES --- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.controls button {
+  background: #0D1117;
+  border: 1px solid #30363D;
+  color: #E6EDF3;
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.controls button:hover {
+  border-color: #58A6FF;
+  color: #58A6FF;
+}
+
+.controls button i {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- TOOLTIPS --- */
+.controls button[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #30363D;
+  color: #E6EDF3;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* --- INPUT Y BOTÓN --- */
+input {
   width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  margin-top: 10px;
-}
-#output {
-  margin-top: 20px;
-  background: white;
   padding: 10px;
-  border: 1px solid #ddd;
+  margin-top: 10px;
+  border: 1px solid #30363D;
+  border-radius: 8px;
+  background: #0D1117;
+  color: #E6EDF3;
+  font-size: 16px;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+input:focus {
+  border-color: #58A6FF;
+  background: #161B22;
+  outline: none;
+}
+
+button#btnGenerate {
+  width: 100%;
+  background: #238636;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+button#btnGenerate:hover {
+  background: #2EA043;
+}
+
+/* --- OUTPUT --- */
+#output {
+  background: #0D1117;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  border: 1px solid #30363D;
+  text-align: left;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+
+#output.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- PARTICLES CANVAS --- */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: transparent;
 }

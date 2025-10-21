@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Widget Vocabulario & Rimas</title>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocabulario & Rimas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Mejorar mi prosa</h1>
-    <input type="text" id="wordInput" placeholder="Escribe una palabra…">
-    <button id="btnGenerate">Generar sinónimos & rimas</button>
+    <h1>Vocabulario Creativo</h1>
+    <p id="dailyWordTitle"></p>
+
+    <div class="controls">
+      <button id="btnNew" title="Nueva palabra del día"><i data-lucide="dice-6"></i></button>
+      <button id="btnIdea" title="Inspiración aleatoria"><i data-lucide="sparkles"></i></button>
+      <button id="btnReset" title="Reiniciar palabra"><i data-lucide="rotate-ccw"></i></button>
+    </div>
+
+    <input id="wordInput" placeholder="Escribe una palabra..." />
+    <button id="btnGenerate">Buscar</button>
+
     <div id="output"></div>
   </div>
+
+  <canvas id="particles"></canvas>
   <script src="script.js"></script>
 </body>
 </html>
